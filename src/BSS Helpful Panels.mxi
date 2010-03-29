@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<macromedia-extension 
+  name="BSS Helpful Panels" 
+  version="1.3" 
+  type="flashpanel" 
+  requires-restart="true"> 
+ <author name="Charlie Whitney, Daniel Scheibel, Benjamin Bojko" />
+ <products> 
+   <product name="Flash" version="9" primary="true" /> 
+ </products> 
+ <description> 
+ <![CDATA[ 
+Helpful panels for everyday flash.
+ ]]> 
+ </description> 
+ <ui-access> 
+ <![CDATA[ 
+ Access the panel by selecting 'Window > Other Panels > BSS Helpful Panels'.  
+ ]]> 
+ </ui-access> 
+
+ <license-agreement> 
+ <![CDATA[ 
+ ]]> 
+ </license-agreement> 
+ <files> 
+ <file source="BSS_Helpful_Panels.swf" destination="$flash/WindowSWF" />
+ <file source="BSS Helpful Panels.jsfl" destination="$flash/Commands" />
+ </files> 
+</macromedia-extension>

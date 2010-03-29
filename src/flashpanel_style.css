@@ -1,0 +1,65 @@
+/* CSS file */
+
+global
+{
+	borderColor: #656565;
+	color: #222222;
+	cornerRadius: 0;
+	fillAlphas: 1.0, 1.0, 1.0, 1.0;
+	fillColors: #E7E7E7, #D5D5D5, #D6D6D6, #BEBEBE;
+	fontFamily: Arial;
+	fontSize: 10;
+	fontWeight: normal;
+	themeColor: #666666;
+	verticalGridLines: true;
+	horizontalGridLines: true;
+	horizontalScrollBarStyleName: dataGridScrollBar;
+	verticalScrollBarStyleName: dataGridScrollBar;
+	selectionColor: #D6D6D6;
+	headerColors: #E7E7E7, #C5C5C5;
+	alternatingItemColors: #FFFFFF, #FFFFFF;
+	horizontalGridLineColor: #CCCCCC;
+	verticalGridLineColor: #CCCCCC;
+	rollOverColor: #E3E3E3;
+	backgroundDisabledColor: #E0E0E0;
+	backgroundColor: #D6D6D6;
+	tabStyleName: tabNavigatorTab;
+	lastTabStyleName: tabNavigatorLastTab;
+	firstTabStyleName: tabNavigatorLastTab;
+	selectedTabTextStyleName: tabNavigatorTab;
+	borderStyle: none;
+}
+.labelHeadline
+{
+	color: #222222;
+	fontFamily: Arial;
+	fontSize: 10;
+	fontWeight: bold;
+}
+.dataGridScrollBar
+{
+	fillAlphas: 1.0, 1.0, 1.0, 1.0;
+	fillColors: #C4C4C4, #C4C4C4, #E3E3E3, #D5D5D5;
+	cornerRadius: 0;
+	trackColors: #C4C4C4, #C4C4C4;
+	thumb-offset: 1;
+}
+.tabNavigatorTab
+{
+	borderColor: #666666;
+	fillColors: #999999, #818181, #ACACAC, #6A6A6A;
+	cornerRadius: 0;
+	themeColor: #666666;
+	fillAlphas: 1.0, 1.0, 1.0, 1.0;
+	color: #222222;
+	backgroundColor: #D6D6D6;
+}
+.tabNavigatorLastTab
+{
+	borderColor: #666666;
+	fillColors: #999999, #818181, #ACACAC, #6A6A6A;
+	cornerRadius: 0;
+	themeColor: #666666;
+	fillAlphas: 1.0, 1.0, 1.0, 1.0;
+	color: #222222;
+}
