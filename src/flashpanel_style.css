@@ -1,5 +1,3 @@
-/* CSS file */
-
 global
 {
 	borderColor: #656565;
@@ -62,4 +60,8 @@ global
 	themeColor: #666666;
 	fillAlphas: 1.0, 1.0, 1.0, 1.0;
 	color: #222222;
+}
+.inputInstanceName {
+	borderColor: #666666;
+	borderThickness: 1;
 }

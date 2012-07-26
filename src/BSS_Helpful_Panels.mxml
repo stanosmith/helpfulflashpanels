@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
-	backgroundColor="#D6D6D6" 
-	styleName="flashPanelStyle"
-	paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0"
-	width="220"
-	height="220"
-	resize="_resize(event)"
-	applicationComplete="_applicationComplete(event)"
-	>
-	
+				backgroundColor="#D6D6D6"
+				styleName="flashPanelStyle"
+				paddingBottom="0"
+				paddingLeft="0"
+				paddingRight="0"
+				paddingTop="0"
+				width="220"
+				height="220"
+				resize="_resize(event)"
+				applicationComplete="_applicationComplete(event)">
+
 	<mx:Script>
 		<![CDATA[
 			import adobe.utils.MMExecute;
@@ -17,100 +19,164 @@
 			import mx.core.FlexGlobals;
 			import mx.events.ToolTipEvent;
 			
-			private function _btnClickTimeline( $e:Event ):void {
+			private function _btnClickTimeline($e:Event):void
+			{
 				
-				switch($e.target){
-					case btnCommonLayerSetup:
+				switch ($e.target)
+				{
+					case btnCommonLayerSetup: 
 						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'addCommonLayers');");
 						break;
-					case btnBasicButtonSetup:
+					case btnBasicButtonSetup: 
 						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'setUpStandardButtonLayers');");
 						break;
-					case btnBasicScreenSetup:
+					case btnBasicScreenSetup: 
 						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'setUpStandardInOutLayers');");
 						break;
-					case btnConvertToStopFrames:
+					case btnConvertToStopFrames: 
 						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'convertToStopFrames');");
 						break;
-					case btnBackupSelectedLayer:
+					case btnBackupSelectedLayer: 
 						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'backupSelectedLayer');");
 						break;
-					case btnToggleGuideLayer:
+					case btnToggleGuideLayer: 
 						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'toggleGuidedLayers');");
 						break;
 				}
 			}
-			 
-			private function _btnClickInstance( $e:Event ):void {
+			
+			private function _btnClickInstance($e:Event):void
+			{
 				
-				switch($e.target){
-					case btnSetInstanceName:
+				switch ($e.target)
+				{
+					case btnSetInstanceName: 
 						var newName:String = inputInstanceName.text.toString();
-						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'renameInstances', '"+newName+"');");
+						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'renameInstances', '" + newName + "');");
 						break;
-					case btnSetLibraryPrefix:
+					case btnSetLibraryPrefix: 
 						var prefix:String = inputLibraryPrefix.text.toString();
-						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'prefixLibItems', '"+prefix+"');");
+						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'prefixLibItems', '" + prefix + "');");
 						break;
-					case btnSwapOnLayer:
+					case btnSwapOnLayer: 
 						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'swapLayer');");
 						break;
-					case btnSwapSelected:
+					case btnSwapSelected: 
 						MMExecute("fl.runScript( fl.configURI +'Commands/BSS Helpful Panels.jsfl', 'swapSymbol');");
 						break;
 				}
-			} 
-			private function _applicationComplete( $e:Event ):void {
+			}
+			
+			private function _applicationComplete($e:Event):void
+			{
 				resizeToolTip();
 			}
 			
-			private function _resize( $e:Event ):void {
+			private function _resize($e:Event):void
+			{
 				resizeToolTip();
 			}
 			
-			private function resizeToolTip():void {
-				ToolTip.maxWidth = Math.min( FlexGlobals.topLevelApplication.width, ToolTip.maxWidth );
-			} 
+			private function resizeToolTip():void
+			{
+				ToolTip.maxWidth = Math.min(FlexGlobals.topLevelApplication.width, ToolTip.maxWidth);
+			}
 		]]>
 	</mx:Script>
-	
-	<mx:TabNavigator width="100%" height="100%" id="tabNavi" backgroundColor="#D6D6D6" paddingBottom="6" paddingLeft="6" paddingRight="6" paddingTop="6" borderStyle="none">
-		<mx:Canvas label="Timeline" id="tabTimeline" width="100%" height="100%">
+
+	<mx:TabNavigator width="100%"
+					 height="100%"
+					 id="tabNavi"
+					 backgroundColor="#D6D6D6"
+					 paddingBottom="6"
+					 paddingLeft="6"
+					 paddingRight="6"
+					 paddingTop="6"
+					 borderStyle="none">
+		<mx:Canvas label="Timeline"
+				   id="tabTimeline"
+				   width="100%"
+				   height="100%">
 			<mx:HBox width="100%">
-				<mx:VBox width="100%" height="100%">
-					<mx:Button width="100%" click="_btnClickTimeline(event)" id="btnCommonLayerSetup" label="Common Layers Setup" toolTip="Adds basic actions and labels layers."/>
-					<mx:Button width="100%" click="_btnClickTimeline(event)" id="btnBasicButtonSetup" label="StandardButton Setup" toolTip="Adds basic action and labels layers and sets them up for handling a StandardBtn."/>
-					<mx:Button width="100%" click="_btnClickTimeline(event)" id="btnBasicScreenSetup" label="StandardInOut Setup" toolTip="Adds basic action and labels layers and sets them up for handling a StandardInOut."/>
-				<!--</mx:VBox>
-				<mx:VBox width="100%" height="100%">-->
-					<mx:Button width="100%" click="_btnClickTimeline(event)" id="btnConvertToStopFrames" label="Convert to Stop Frames" toolTip="Convert the selected frames to keyFrames containing the actionscript 'stop();'"/>
-					<mx:Button width="100%" click="_btnClickTimeline(event)" id="btnBackupSelectedLayer" label="Backup Selected Layer" toolTip="Copies the contents of the currently selected layer into a new layer which is guided, locked, and set invisible."/>
-					<mx:Button width="100%" click="_btnClickTimeline(event)" id="btnToggleGuideLayer" label="Toggle Guide Layer" toolTip="For each of the selected layers, guide non-guided layers and set guided layers to normal."/>
+				<mx:VBox width="100%"
+						 height="100%">
+					<mx:Button width="100%"
+							   click="_btnClickTimeline(event)"
+							   id="btnCommonLayerSetup"
+							   label="Common Layers Setup"
+							   toolTip="Adds basic actions and labels layers." />
+					<mx:Button width="100%"
+							   click="_btnClickTimeline(event)"
+							   id="btnBasicButtonSetup"
+							   label="StandardButton Setup"
+							   toolTip="Adds basic action and labels layers and sets them up for handling a StandardBtn." />
+					<mx:Button width="100%"
+							   click="_btnClickTimeline(event)"
+							   id="btnBasicScreenSetup"
+							   label="StandardInOut Setup"
+							   toolTip="Adds basic action and labels layers and sets them up for handling a StandardInOut." />
+					<!--</mx:VBox>
+						 <mx:VBox width="100%" height="100%">-->
+					<mx:Button width="100%"
+							   click="_btnClickTimeline(event)"
+							   id="btnConvertToStopFrames"
+							   label="Convert to Stop Frames"
+							   toolTip="Convert the selected frames to keyFrames containing the actionscript 'stop();'" />
+					<mx:Button width="100%"
+							   click="_btnClickTimeline(event)"
+							   id="btnBackupSelectedLayer"
+							   label="Backup Selected Layer"
+							   toolTip="Copies the contents of the currently selected layer into a new layer which is guided, locked, and set invisible." />
+					<mx:Button width="100%"
+							   click="_btnClickTimeline(event)"
+							   id="btnToggleGuideLayer"
+							   label="Toggle Guide Layer"
+							   toolTip="For each of the selected layers, guide non-guided layers and set guided layers to normal." />
 				</mx:VBox>
 			</mx:HBox>
 		</mx:Canvas>
-		<mx:Canvas label="Instance" id="tabInstance" width="100%" height="100%">
+		<mx:Canvas label="Instance"
+				   id="tabInstance"
+				   width="100%"
+				   height="100%">
 			<mx:VBox width="100%">
-				<mx:Label text="Instance Naming"/>
+				<mx:Label text="Instance Naming" />
 				<mx:HBox width="100%">
-					<mx:TextInput width="100%" id="inputInstanceName" restrict="A-Za-z0-9_" />
-					<mx:Button label="Set" id="btnSetInstanceName" click="_btnClickInstance(event)" toolTip="Renames all instances on the selected layer to the given value. When more than one type of instance shares a layer this can be unpredictable."/>
+					<mx:TextInput width="100%"
+								  id="inputInstanceName"
+								  restrict="A-Za-z0-9_" />
+					<mx:Button label="Set"
+							   id="btnSetInstanceName"
+							   click="_btnClickInstance(event)"
+							   toolTip="Renames all instances on the selected layer to the given value. When more than one type of instance shares a layer this can be unpredictable." />
 				</mx:HBox>
-				<mx:Label text="Prefix Selected Library Items"/>
+				<mx:Label text="Prefix Selected Library Items" />
 				<mx:HBox width="100%">
-					<mx:TextInput width="100%" id="inputLibraryPrefix"/>
-					<mx:Button label="Set" id="btnSetLibraryPrefix" click="_btnClickInstance(event)" toolTip="Prefix the selected items in the library with the given value. This does not effect export names. If renaming a lot of clips it can take a few moments to process."/>
+					<mx:TextInput width="100%"
+								  id="inputLibraryPrefix" />
+					<mx:Button label="Set"
+							   id="btnSetLibraryPrefix"
+							   click="_btnClickInstance(event)"
+							   toolTip="Prefix the selected items in the library with the given value. This does not effect export names. If renaming a lot of clips it can take a few moments to process." />
 				</mx:HBox>
 				<mx:HBox width="100%">
-					<mx:Button label="Swap on Layer" id="btnSwapOnLayer" click="_btnClickInstance(event)" width="100%" toolTip="Swap all instances on the current layer with the selected library item."/>
-					<mx:Button label="Swap Selected" id="btnSwapSelected" click="_btnClickInstance(event)" width="100%" toolTip="Swap the selected stage instance with the selected library item."/>
+					<mx:Button label="Swap on Layer"
+							   id="btnSwapOnLayer"
+							   click="_btnClickInstance(event)"
+							   width="100%"
+							   toolTip="Swap all instances on the current layer with the selected library item." />
+					<mx:Button label="Swap Selected"
+							   id="btnSwapSelected"
+							   click="_btnClickInstance(event)"
+							   width="100%"
+							   toolTip="Swap the selected stage instance with the selected library item." />
 				</mx:HBox>
 			</mx:VBox>
 		</mx:Canvas>
 	</mx:TabNavigator>
-	
+
 	<mx:Label text="©2009 Big Spaceship" />
-	
-	<mx:Style source="flashpanel_style.css"/>
-	
+
+	<mx:Style source="flashpanel_style.css" />
+
 </mx:Application>
